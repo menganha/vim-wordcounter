@@ -13,6 +13,7 @@ if &compatible
 endif
 let g:loaded_wordcounter = 1
 
+
 " WordCountWrapper is a wrapper over the vim native's wordcount() function. It
 " returns the number of words or the number of words offset by and argumetn
 "
@@ -21,7 +22,6 @@ let g:loaded_wordcounter = 1
 "       1 does the same but offsets the number by the argument input
 " Optional: 
 " offset (int): offset number of words
-"
 
 function! s:WordCountWrapper(mode,...)
     let counts = wordcount()['words']
@@ -51,3 +51,4 @@ autocmd VimLeave *_n.md  let b:fname = substitute(@%,'\..*$', '\.stats', '")
     \ | execute "silent !echo" b:initTime b:endTime b:initWords b:nWords ">>" b:fname
     \ | endif
 augroup END
+
