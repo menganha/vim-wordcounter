@@ -46,7 +46,7 @@ autocmd BufRead,BufNewFile *_n.md setlocal cmdheight=2
 autocmd BufWritePost *_n.md let b:nWords = s:WordCountWrapper(1, b:initWords)
     \ | echo "Number of written words: " b:nWords
 autocmd BufWritePost *_n.md let b:endTime = localtime()
-autocmd VimLeave *_n.md  let b:fname = substitute(@%,'\..*$', '\.stats', '")
+autocmd VimLeave *_n.md  let b:fname = substitute(@%, '\..*$', '\.stats', '')
     \ | if exists("b:nWords")
     \ | execute "silent !echo" b:initTime b:endTime b:initWords b:nWords ">>" b:fname
     \ | endif
